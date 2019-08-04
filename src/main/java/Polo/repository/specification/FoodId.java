@@ -6,22 +6,22 @@ import polo.connections.ConnectorManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ClientName implements SQLSpecification {
+public class FoodId implements  SQLSpecification{
     ConnectionManager connectionManager;
     private int id;
 
-    public ClientName(int id) {
+    public FoodId(int id) {
         this.id = id;
     }
 
     @Override
     public PreparedStatement toSqlQuery() throws SQLException {
         connectionManager = new ConnectorManager();
-        PreparedStatement readNameStatement = connectionManager.getConnection()
-                .prepareStatement("SELECT name FROM clients WHERE id=?");
+        PreparedStatement readAllStatement = connectionManager.getConnection()
+                .prepareStatement("SELECT * FROM food WHERE id=?");
 
-        readNameStatement.setInt(1, id);
+        readAllStatement.setInt(1, id);
 
-        return readNameStatement;
+        return readAllStatement;
     }
 }

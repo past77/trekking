@@ -1,4 +1,4 @@
-package Polo.repository;
+package polo.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package Polo.connections;
+package polo.connections;
 
 import java.sql.Connection;
 

@@ -1,7 +1,8 @@
-package Polo.repository.specification;
+package polo.repository.specification;
 
-import Polo.connections.ConnectionManager;
-import Polo.entity.Food;
+import polo.connections.ConnectionManager;
+import polo.connections.ConnectorManager;
+import polo.entity.Food;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,6 +18,7 @@ public class FoodUpdate implements  SQLSpecification{
 
     @Override
     public PreparedStatement toSqlQuery() throws SQLException {
+        connectionManager = new ConnectorManager();
         PreparedStatement updateStatement = connectionManager.getConnection()
                 .prepareStatement("UPDATE food SET name='?', number=?, " +
                         "calories=?, proteins=?, fats=?, carbohydrates=?" +

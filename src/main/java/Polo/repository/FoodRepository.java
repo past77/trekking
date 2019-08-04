@@ -1,17 +1,20 @@
-package Polo.repository;
+package polo.repository;
 
-import Polo.connections.ConnectionManager;
+import polo.connections.ConnectionManager;
+import polo.connections.ConnectorManager;
+import polo.repository.specification.SQLSpecification;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class FoodRepository implements IRepository {
+public class FoodRepository implements IRepository, IQuery {
     ConnectionManager connectionManager;
 
     @Override
     public void create(Object... args) throws SQLException {
+        connectionManager = new ConnectorManager();
         PreparedStatement insertFoodUnit = connectionManager.getConnection()
                 .prepareStatement("INSERT INTO food VALUES(NULL, ?, ?, ?, ?, ?, ?)");
 
@@ -30,6 +33,7 @@ public class FoodRepository implements IRepository {
 
     @Override
     public ResultSet read(int id) throws SQLException {
+        connectionManager = new ConnectorManager();
         Statement readStatement = connectionManager.getConnection().createStatement();
 
         return readStatement.executeQuery("SELECT * FROM food");
@@ -37,6 +41,7 @@ public class FoodRepository implements IRepository {
 
     @Override
     public void delete(int id) throws SQLException {
+        connectionManager = new ConnectorManager();
         PreparedStatement deleteStatement = connectionManager.getConnection()
                 .prepareStatement("DELETE FROM food WHERE id = ?");
 
@@ -48,6 +53,7 @@ public class FoodRepository implements IRepository {
 
     @Override
     public int update(Object... args) throws SQLException {
+        connectionManager = new ConnectorManager();
         PreparedStatement updateStatement = connectionManager.getConnection()
                 .prepareStatement("UPDATE food SET name=?, number=?, " +
                         "calories=?, proteins=?, fats=?, carbohydrates=? WHERE id=?");
@@ -60,5 +66,9 @@ public class FoodRepository implements IRepository {
         updateStatement.setString(7, (String) args[6]);
 
         return updateStatement.executeUpdate();
+    }
+    @Override
+    public ResultSet specificReadQuery(SQLSpecification sqlSpecification) throws SQLException {
+        return sqlSpecification.toSqlQuery().executeQuery();
     }
 }

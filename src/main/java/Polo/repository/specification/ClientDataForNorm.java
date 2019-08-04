@@ -1,6 +1,6 @@
-package Polo.repository.specification;
+package polo.repository.specification;
 
-import Polo.connections.ConnectionManager;
+import polo.connections.ConnectionManager;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

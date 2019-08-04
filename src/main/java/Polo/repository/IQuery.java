@@ -1,6 +1,6 @@
-package Polo.repository;
+package polo.repository;
 
-import Polo.repository.specification.SQLSpecification;
+import polo.repository.specification.SQLSpecification;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
