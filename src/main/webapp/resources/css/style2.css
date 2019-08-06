@@ -1,0 +1,11 @@
+body {
+    padding: 0px;
+     margin: 0px;
+     background: url(/resources/img/backg.jpg);
+     background-size: cover;
+     background-attachment: fixed;
+}
+.menu {
+    margin-top: 20px;
+    text-align: center;
+}
