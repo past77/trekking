@@ -116,17 +116,11 @@ public class FacadeClient {
             while (result.next()) {
                 ClientStatisticsDTO client = new ClientStatisticsDTO();
                 client.setName(result.getString(1));
-                client.setAverageDeflection(new NutritiveValue(
-                        result.getDouble(2),
-                        result.getDouble(3),
-                        result.getDouble(4),
-                        result.getDouble(5)
-                ));
-                client.setFavFood(result.getString(6));
-
+                client.setDate(result.getDate(2).toLocalDate());
+                client.setNameFood(result.getString(3));
+                client.setAmount(result.getInt(4));
                 clients.add(client);
             }
-
             LOG.info("Read clients statistics successfully");
         } catch (SQLException e) {
             LOG.error("Failed to read clients statistics");

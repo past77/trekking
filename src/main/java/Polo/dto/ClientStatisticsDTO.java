@@ -1,11 +1,12 @@
 package polo.dto;
 
-import polo.entity.NutritiveValue;
+import java.time.LocalDate;
 
 public class ClientStatisticsDTO {
     String name;
-    NutritiveValue averageDeflection;
-    String favFood;
+    LocalDate date;
+    String nameFood;
+    int     amount;
 
     public String getName() {
         return name;
@@ -15,19 +16,31 @@ public class ClientStatisticsDTO {
         this.name = name;
     }
 
-    public NutritiveValue getAverageDeflection() {
-        return averageDeflection;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setAverageDeflection(NutritiveValue averageDeflection) {
-        this.averageDeflection = averageDeflection;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public String getFavFood() {
-        return favFood;
+    public String getNameFood() {
+        return nameFood;
     }
 
-    public void setFavFood(String favFood) {
-        this.favFood = favFood;
+    public void setNameFood(String nameFood) {
+        this.nameFood = nameFood;
     }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+
+
+
 }
