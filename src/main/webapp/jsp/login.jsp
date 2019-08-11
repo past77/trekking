@@ -9,9 +9,15 @@
 
 <body>
 <%@include file="/jsp/main.jsp" %>
-<%@include file="header.jsp" %>
 
 <form class="register" method="POST" action="/login" autocomplete="on">
+
+        <p>
+            <i style="color: red;">
+                <fmt:message key="${error_message}"/>
+            </i>
+        </p>
+
     <span class="text-primary"><i class="forminput" aria-hidden="true"></i><fmt:message key="login.page"/> </span>
         <input name="userName" placeholder='<fmt:message key="registration.name"/>' type="text">
     <br>

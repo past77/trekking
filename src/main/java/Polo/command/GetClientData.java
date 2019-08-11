@@ -21,20 +21,21 @@ public class GetClientData implements ICommand {
      */
     @Override
     public String execute(HttpServletRequest req) {
+
         FacadeClient clientFacade = new FacadeClient();
-       int id = AppUtils.getClientFromSession(req).getId();
+        if(AppUtils.getClientFromSession(req) != null) {
+            int id = AppUtils.getClientFromSession(req).getId();
+            ClientDTO client = clientFacade.getData(id);
 
-        ClientDTO client = clientFacade.getData(id);
-
-        req.getServletContext().setAttribute("id", id);
-        req.getServletContext().setAttribute("image", client.getImg());
-        req.getServletContext().setAttribute("name", client.getName());
-        req.getServletContext().setAttribute("age", client.getAge());
-        req.getServletContext().setAttribute("gender", client.getGender());
-        req.getServletContext().setAttribute("height", client.getHeight());
-        req.getServletContext().setAttribute("weight", client.getWeight());
-        req.getServletContext().setAttribute("lifeStyle", client.getLifeStyle());
-
+            req.getServletContext().setAttribute("id", id);
+            req.getServletContext().setAttribute("image", client.getImg());
+            req.getServletContext().setAttribute("name", client.getName());
+            req.getServletContext().setAttribute("age", client.getAge());
+            req.getServletContext().setAttribute("gender", client.getGender());
+            req.getServletContext().setAttribute("height", client.getHeight());
+            req.getServletContext().setAttribute("weight", client.getWeight());
+            req.getServletContext().setAttribute("lifeStyle", client.getLifeStyle());
+        }
         return "/jsp/client_page.jsp";
     }
 }

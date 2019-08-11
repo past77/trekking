@@ -24,7 +24,6 @@ public abstract class MainFilter implements Filter{
 
         if(session != null) {
             user = ((Client) req.getSession().getAttribute("client"));
-            System.out.println("user: " + user);
         }
 
         if(isn_tAllowed(req, user)) {

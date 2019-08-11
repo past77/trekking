@@ -8,25 +8,24 @@
 </head>
 
 <body>
-<%@include file="header.jsp" %>
-<form action="${pageContext.request.contextPath}/logout" method="post">
-    <input type="submit" value="Log Out">
-</form>
-
+<%@include file="main.jsp" %>
 <table>
+ <caption>History of food that have been eaten</caption>
     <thead>
-    <td>
+    <tr>
+    <th scope="col">
         <fmt:message key="client.name"/>
-    </td>
-    <td>
+    </th>
+    <th>
         <fmt:message key="food.food.name"/>
-    </td>
-    <td>
+    </th>
+    <th>
         <fmt:message key="food.date"/>
-    </td>
-    <td>
+    </th>
+    <th>
         <fmt:message key="amount"/>
-    </td>
+    </th>
+    </tr>
     </thead>
     <c:forEach items="${clientStat}" var="record">
         <tr>
@@ -45,16 +44,17 @@
         </tr>
     </c:forEach>
 </table>
-<list>
+<div class="inlined">
+<list >
     <c:forEach items="${links}" var="link_num">
         <a href='${requestScope[' javax.servlet.forward.request_uri']}?page=
         <c:out value="${link_num}"/>
         '>
-        <li class="inlined">
+        <li class="pagin" >
             <c:out value="${link_num}"/>
         </li>
         </a>
     </c:forEach>
 </list>
-
+</div>
 <%@include file="footer.jsp" %>

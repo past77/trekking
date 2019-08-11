@@ -3,6 +3,7 @@ package polo.servlets;
 import polo.command.ICommand;
 import polo.command.NormCommand;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 
 public class NormServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         ICommand normCommand = new NormCommand();
         String result = null;
         try {
@@ -20,7 +21,7 @@ public class NormServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.setContentType("text/html");
-        resp.getWriter().write(result);
+        req.getRequestDispatcher(result).forward(req, resp);
     }
+
 }

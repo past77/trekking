@@ -2,6 +2,7 @@ package polo.connections;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.log4j.Logger;
+import polo.exception.InitializationException;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -34,8 +35,8 @@ public class ConnectorManager implements ConnectionManager {
             dbcp.setMaxOpenPreparedStatements(100);
             dbcp.setDefaultTransactionIsolation(1);
         } catch (Exception e) {
-
             LOGGER.error(e.getMessage());
+            throw new InitializationException("Can't start DBCP");
         }
     }
 

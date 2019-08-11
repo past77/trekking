@@ -19,9 +19,9 @@ public enum LifeStyle {
                 return 1;
         }
     }
-//    private static final float M = 1.1f;
-//    private static final float L = 1.35f;
-//    private static final float A = 1.55f;
-//    private static final float H = 1.725f;
-//    private static final float E = 1.9f;
+
+    @Override
+    public String toString() {
+        return name().toLowerCase();
+    }
 }

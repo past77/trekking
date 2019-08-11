@@ -17,6 +17,9 @@ public class AppUtils {
     }
 
     public static Client getClientFromSession(HttpServletRequest req) {
+        if (req.getAttribute("client") != null) {
+            return (Client) req.getSession().getAttribute("client");
+        }
         return (Client) req.getSession().getAttribute("client");
     }
 }

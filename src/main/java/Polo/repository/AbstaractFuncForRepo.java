@@ -17,6 +17,13 @@ public abstract class AbstaractFuncForRepo {
         }
         return id;
     }
+   public double roundResult (double d, int precise) {
 
+        precise = 10^precise;
+        d = d*precise;
+        int i = (int) Math.round(d);
+        return (double) i/precise;
+
+    }
 
 }

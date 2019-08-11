@@ -14,16 +14,18 @@
   <url>http://www.example.com</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <jdk.version>1.8</jdk.version>
+    <java.version>1.8</java.version>
+    <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
+    <dbcp.version>2.6.0</dbcp.version>
+    <servlets.version>3.1.0</servlets.version>
+    <jstl.version>1.2</jstl.version>
+    <junit.version>4.12</junit.version>
+    <mockito.version>2.0.2-beta</mockito.version>
+    <apache.version>3.9</apache.version>
+    <jsp.api.version>2.2.1-b03</jsp.api.version>
+    <commons-codec.version>1.10</commons-codec.version>
   </properties>
 
-
-<!--  <properties>-->
-<!--    <jdk.version>1.8</jdk.version>-->
-<!--  </properties>-->
 
   <dependencies>
     <dependency>
@@ -95,7 +97,7 @@
   </dependencies>
 
   <build>
-    <finalName>Trekking</finalName>
+    <finalName>trekking</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>

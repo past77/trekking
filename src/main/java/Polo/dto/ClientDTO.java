@@ -1,14 +1,37 @@
 package polo.dto;
 
+import java.time.LocalDate;
+
 public class ClientDTO {
     private int id;
     private String img;
     private String name;
     private int age;
     private String gender;
+    private String password;
     private double height;
     private double weight;
     private String lifeStyle;
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    private LocalDate date;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
 
     public String getImg() {
         return img;

@@ -25,8 +25,9 @@ public class DailyRation {
         foodMap.put(food, amount);
     }
 
+
     public double getFoodAmount(Food food) {
-        return foodMap.get(amount);
+            return foodMap.get(food);
     }
 
     @Override

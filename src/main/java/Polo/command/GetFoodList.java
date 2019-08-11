@@ -24,8 +24,9 @@ public class GetFoodList implements ICommand{
     public String execute(HttpServletRequest req) {
         FoodService foodService = new FoodService();
         List<Food> foodList = foodService.getFoodLIst();
-        req.getServletContext().setAttribute("foodList", foodList);
-
+        if(req.getServletContext() != null) {
+             req.getServletContext().setAttribute("foodList", foodList);
+        }
         return "jsp/client_page.jsp";
     }
 }

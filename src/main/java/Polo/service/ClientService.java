@@ -5,6 +5,7 @@ import polo.dto.ClientDTO;
 import polo.entity.Client;
 import polo.entity.GenderEnum;
 import polo.entity.LifeStyle;
+import polo.exception.UserIsNotExist;
 import polo.repository.ClientRepository;
 import polo.repository.IRepository;
 import polo.repository.specification.ClientLogin;
@@ -36,9 +37,9 @@ public class ClientService {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage());
+            throw new UserIsNotExist();
         }
-
         return client;
     }
 
@@ -56,18 +57,15 @@ public class ClientService {
                 client.setHeight(clientRes.getDouble(5));
                 client.setWeight(clientRes.getDouble(6));
                 client.setLifeStyle(LifeStyle.valueOf(clientRes.getString(7)));
-              // LifeStyle lf = LifeStyle.valueOf(clientRes.getString(7));
-                //client.setLifeStyle(LifeStyle.lifeStyle(lf));
             }
             return client;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage());
+            throw new UserIsNotExist("Can't find user");
         }
-
-        return null;
     }
 
-    public void addClient(ClientDTO client) {
+    public int addClient(ClientDTO client) {
         Object[] args = new Object[7];
 
         args[0] = client.getName();
@@ -86,6 +84,7 @@ public class ClientService {
             LOG.error("Fail to create new client " + client.getName() +
                     " " + e);
         }
+        return 0;
     }
 
     public int updateClientData(Client client) {

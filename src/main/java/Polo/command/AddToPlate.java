@@ -24,6 +24,7 @@ public class AddToPlate implements ICommand {
      */
 
     private static final Logger LOG = Logger.getLogger(AddToPlate.class);
+
     /**
      * gets the chosen food and puts it to client`s plate for further
      * operations
@@ -62,10 +63,10 @@ public class AddToPlate implements ICommand {
         FoodService foodService = new FoodService();
         aList = new ArrayList<>();
 
-        for(i = 1; i <= last_id; i++) {
+        for (i = 1; i <= last_id; i++) {
             FoodHistoryDTO date = dailyFacade.getData(i);
             int clientId = date.getClient_id();
-            if(date.getDate().equals(LocalDate.now()) && clientId == client.getId()) {
+            if (date.getDate().equals(LocalDate.now()) && clientId == client.getId()) {
                 dailyPlate.add(date.getAmount());
                 foodListDaily = foodService.getFoodData(date.getFood_id());
                 aList.add(foodListDaily);
@@ -78,7 +79,7 @@ public class AddToPlate implements ICommand {
 
     }
 
-    public void SetLastId(int id_last){
+    public void SetLastId(int id_last) {
         last_id = id_last;
     }
 }

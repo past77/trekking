@@ -13,6 +13,7 @@ import polo.utils.AppUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class NormCommand extends AbstaractFuncForRepo implements ICommand{
@@ -35,6 +36,7 @@ public class NormCommand extends AbstaractFuncForRepo implements ICommand{
     @Override
     public String execute(HttpServletRequest req) {
         ArrayList<Food> listFood = null;
+        List<String> norma = null;
         Client client = AppUtils.getClientFromSession(req);
 
         LOG.info("Calculating eaten nutritive value");
@@ -75,11 +77,13 @@ public class NormCommand extends AbstaractFuncForRepo implements ICommand{
         DeflectionFacade deflectionFacade = new DeflectionFacade();
         deflectionFacade.writeDeflection(deflection, client.getId());
 
-        LOG.info("Client`s plate size in the end: " + client.getDailyRation().getFoodMap().size());
+        norma = new ArrayList<>();
+        norma.add(String.format("%.1f",deflection.getCalories()));
+        norma.add(String.format("%.1f",deflection.getCalories()));
+        norma.add(String.format("%.1f",deflection.getFat()));
+        norma.add(String.format("%.1f",deflection.getCarbohydrates()));
 
-        return "<td>" + String.format("%.1f",deflection.getCalories()) + "</td>" +
-                "<td>" + String.format("%.1f",deflection.getProtein()) + "</td>" +
-                "<td>" + String.format("%.1f",deflection.getFat()) + "</td>" +
-                "<td>" + String.format("%.1f",deflection.getCarbohydrates()) + "</td>";
+        req.setAttribute("norma", norma);
+        return "/jsp/client_page.jsp";
     }
 }

@@ -8,8 +8,7 @@
 </head>
 
 <body>
-<%@include file="header.jsp" %>
- <li> <a href="/"><fmt:message key="main.page"/></a><li>
+<%@include file="main.jsp" %>
 <form class="register" method="POST" action="/registration" autocomplete="on">
     <div>
         <span><i aria-hidden="true"></i><fmt:message key="client.name"/> </span>

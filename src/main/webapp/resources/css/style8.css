@@ -3,12 +3,13 @@ body {
     padding: 0px;
      font-family: Monospace, serif;
         margin: 0px;
-        background: url(/resources/img/bgnut.jpg);
+        background: url(/resources/img/fit.jpg);
         background-size: cover;
         background-attachment: fixed;
 }
 
 .circular--square {
+padding: 10px;
   border-radius: 50%;
    width: 200px;
     height: 200px;
@@ -16,7 +17,7 @@ body {
 
 .suc{
 text-align: center;
-color: yellow !important;
+color: blue !important;
 font-family: Monospace, serif;
 font-size: 38px !important;
 }
@@ -38,12 +39,14 @@ a, a:visited, a:active, .language-btn {
 
 }
 
+
+
 .welcome-title {
     margin-top: 200px;
     text-align: center;
     text-transform: uppercase;
     font-family: Monospace, serif;
-    color: yellow;
+    color: blue;
     font-size: 72px;
     text-shadow: 1px 1px 15px #757575;
 
@@ -58,13 +61,27 @@ a, a:visited, a:active, .language-btn {
     text-shadow: 1px 1px 15px #757575;
 
 }
+.personal_data{
+display: block;
+ background-color: blue;
+ width: 300px;
+     height: 300px;
 
+}
+.row{
+display: inline-block;
+}
+
+.pr_data{
+padding : 10px;
+color:red;
+}
 .ule {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: url(/resources/img/header.jpg);
+  background-color: blue;
 
 
   width : 100%;
@@ -81,14 +98,39 @@ top:-67px;
 li {
   float: left;
 }
+.container{
+height: 300px;
+float:right;
+padding:20px;
+padding-right:50px;
+}
+.container2{
+height: 150px;
+float:left;
+margin-right:30px;
+margin-left:30px;
+padding:20px;
+}
+
+.plate_table{
+  margin-left:50px;
+}
+.btn-def{
+margin-left:150px;
+}
+
 
 .logged{
+width:100px;
  font-family: Monospace, serif;
     font-size: 10pt;
 padding : 25px;
 color : rgba(100, 28, 52);
 }
-
+.addPlate{
+ color: #DAA520;
+ background-color: brown;
+ }
 li a {
   display: block;
   color: #DAA520;
@@ -149,16 +191,18 @@ margin-left: 312px;
 padding : 20px;
     color:black;
 }
+
+
 .forminput{
 padding : 20px;
 }
 .register {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.9); <!-- register fon -->
     border-radius: 10px;
     margin-top: 120px;
     padding: 10px 10px 20px 10px;
     width: 40%;
-
+margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -171,12 +215,6 @@ padding : 20px;
 .mytable table {
 
     width: 1000px;
-}
-.bookUp{
-
-
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .prof  {
@@ -238,19 +276,32 @@ color: rgba(0, 0, 0, 0.4);
     margin: 10px 0px 0px 0px;
     background: rgba(78, 52, 46, 0.7);
     border-radius: 5px;
-    text-align: center;
+
     border: none;
     color: yellow;
     text-shadow: 1px 1px 10px #757575;
 
     font-family: Monospace, serif;
 }
+.sub-btn{
+color:green;
+align:center;
+ background: rgba(78, 52, 46, 0.7);
+}
+
+.custom_food{
+margin-left:500px;
+margin-top:100px;
+align:center;}
+
 .text-danger{
 font-size: 30px;
 text-align: center;
 color:red;
 }
 
+h3{
+color:blue;}
 .my-pagination {
     padding: 10px 20px 10px 20px;
     margin: 10px 0px 0px 0px;
@@ -270,7 +321,7 @@ margin-left :280px;
 
 .footer {
   position: absolute;
-   background: url(/resources/img/header.jpg);
+   background-color: blue;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -282,3 +333,34 @@ width: 250px;
 left:1100px;
 color : red;}
 
+table {
+border-collapse: collapse; /*убираем пустые промежутки между ячейками*/
+border: 2px solid grey; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+}
+th {border: 3px solid grey;}
+td {border: 1px solid grey;}
+
+table {border: 3px solid grey;}
+
+th {width: 10%;}
+
+th {
+  font-weight: normal;
+  color: #039;
+  padding: 5px 10px;
+}
+td {
+  color: blue;
+  border-top: 1px solid #e8edff;
+  padding: 5px 10px;
+}
+tr:nth-child(2n) {background: #e8edff;}
+
+caption{
+font-size: 30px;
+color: blue;}
+
+.pagin{
+color: white;
+padding: 1px;
+background-color: #039}

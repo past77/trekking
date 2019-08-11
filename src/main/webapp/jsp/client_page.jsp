@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<script src="/js/calcNorm.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+
 <html>
 
 <head>
@@ -11,61 +11,42 @@
 </head>
 
 <body>
-<%@include file="/jsp/main.jsp" %>
-<%@include file="header.jsp" %>
+<%@include file="main.jsp" %>
+
 <!-- Client Data -->
 <div class="container" id="client-data">
     <div class="row">
         <div><img class="circular--square"
                 src='<c:out value="${image}" default="/img/avatars/default.png" />'/></div>
         <div class="col-sm-5">
-            <div class="row">
-                <div class="col-sm-9">
+                <div class="personal_data">
                     <list class="personal_data">
                         <li><input id="client_id" name="id" type="hidden" value='<c:out value="${id}" />'></li>
-                        <li><input disabled id="name"
-                                   type="text" value='<fmt:message key="client.name" />:  <c:out value="${name}" />'/>
-                        </li>
-                        <li><input disabled id="age"
-                                   type="text" value='<fmt:message key="client.age" />:  <c:out value="${age}" />'/>
-                        </li>
-                        <li><input disabled id="gender"
-                                   type="hidden"
-                                   value='<c:out value="${gender}"/>'/>
-                        </li>
-                        <li><input disabled id="gender_out"
-                                   type="text"
-                                   value='<fmt:message key="client.gender" />:  <fmt:message key="client.gender.${gender}" />'/>
-                        </li>
-                        <li><input disabled id="height"
-                                   type="text"
-                                   value='<fmt:message key="client.height" />:  <c:out value="${height}" />'/></li>
-                        <li><input disabled id="weight"
-                                   type="text"
-                                   value='<fmt:message key="client.weight" />:  <c:out value="${weight}" />'/></li>
-                        <li><input disabled id="lifeStyle"
-                                   type="text"
-                                   value='<fmt:message key="client.lifestyle" />:  <c:out value="${lifeStyle}" />'/>
-                        </li>
+                        <div class = "pr_data"> <fmt:message key="client.name" />:  <c:out value="${name}"/>
+                        </div>
+                        <div class = "pr_data"> <fmt:message key="client.age" />:  <c:out value="${age}" />
+                        </div>
+                        <div class = "pr_data">
+                                   <fmt:message key="client.gender" />:  <fmt:message key="client.gender.${gender}"/>
+                        </div>
+                        <div class = "pr_data">
+                                  <fmt:message key="client.height" />:  <c:out value="${height}" /></li>
+                         </div>
+                        <div class = "pr_data">
+                                   <fmt:message key="client.weight" />:  <c:out value="${weight}"/></li>
+                          </div>
+                        <div class = "pr_data">
+                                  <fmt:message key="client.lifestyle" />:  <c:out value="${lifeStyle}"/>
+                        </div>
                     </list>
                 </div>
-                <div class="col-sm-3">
-                </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <a href="/custom_food">
-                <fmt:message key="menu.custom_food"/>
-            </a>
-
-        </div>
     </div>
 </div>
 
-<!-- End Client Data -->
-<!-- Add Food Form -->
-<div class="container" id="add-food-form">
-  <form class="addPlate" method="post" action="/add_to_plate">
+<div class="container2" id="add-food-form">
+<h3> Add Food</h3>
+  <form method="post" action="/add_to_plate">
         <div class="col-sm-4">
             <select id="food_selection" name="food_selection">
                 <c:forEach items="${foodList}" var="food">
@@ -86,19 +67,8 @@
 </div>
 
 <!-- Client`s plate -->
-<a name="calc"></a>
-<div class="column">
-    <div class="row">
-        <div class="col-sm-3">
-            <h3>
-                <fmt:message key="food.your_plate"/>
-            </h3>
-        </div>
-        <div class="col-sm-6"></div>
-    </div>
-</div>
-
 <table class="plate_table">
+<caption><fmt:message key="food.your_plate"/></caption>
     <thead>
     <td>
         <fmt:message key="food.name"/>
@@ -170,11 +140,11 @@
 </table>
 
 <!-- End Client`s plate -->
-</form>
-<button class="btn btn-default" onclick="caculateNorm()">
-    <fmt:message key="menu.calc"/>
-</button>
-<table id="deflection">
+   <form method="post" action="/norm">
+        <input type="submit" class="submit-button" value='<fmt:message key="menu.calc"/>'/>
+   </form>
+
+<table class = "plate_table" id="deflection">
     <thead>
     <tr>
         <td>
@@ -191,7 +161,30 @@
         </td>
     </tr>
     </thead>
-    <tr id="def_value"></tr>
+    <tbody>
+                    <tr>
+                        <td>
+                            <div class="col-md-2">
+                                <c:out value="${norma.get(0)}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-2">
+                                <c:out value="${norma.get(1)}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-2">
+                                <c:out value="${norma.get(2)}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-2">
+                                <c:out value="${norma.get(3)}"/>
+                            </div>
+                        </td>
+                    </tr>
+</tbody>
 </table>
 
 </body>
