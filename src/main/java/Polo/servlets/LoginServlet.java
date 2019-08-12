@@ -3,6 +3,7 @@ package polo.servlets;
 import org.apache.log4j.Logger;
 import polo.entity.Client;
 import polo.entity.RoleEnum;
+import polo.exception.UserIsNotExist;
 import polo.service.ClientService;
 import polo.utils.AppUtils;
 
@@ -32,11 +33,11 @@ public class LoginServlet extends HttpServlet {
         String userName = req.getParameter("userName").trim();
         String password = req.getParameter("password").trim();
 
-        //get client from database
-        Client loginedClient = new ClientService().getLoginData(userName, password);
-        //if not found forward error message
-        if (loginedClient == null) {
-            LOG.error("Client not found in the database");
+        Client loginedClient = null;
+        try {
+            loginedClient = new ClientService().getLoginData(userName, password);
+        } catch (UserIsNotExist e) {
+            LOG.error("Client not found in the database ");
 
             req.setAttribute("error_message", "error.login.message");
             LOG.debug("Login error message returned");
@@ -60,6 +61,6 @@ public class LoginServlet extends HttpServlet {
             LOG.info("Client redirected stat_page");
         }
         resp.sendRedirect(redirectTo);
-    }
 
+    }
 }

@@ -23,10 +23,10 @@ public class ClientLogin implements SQLSpecification {
     @Override
     public PreparedStatement toSqlQuery()  {
         connectionManager = new ConnectorManager();
-        try(PreparedStatement readStatement = connectionManager.getConnection()
+        try {
+            PreparedStatement readStatement = connectionManager.getConnection()
                     .prepareStatement("SELECT id, name, password, role " +
-                            "FROM clients WHERE name = ? AND password = ?")) {
-
+                            "FROM clients WHERE name = ? AND password = ?");
             readStatement.setString(1, userName);
             readStatement.setString(2, password);
 

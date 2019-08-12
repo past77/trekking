@@ -38,8 +38,13 @@ public class ClientService {
 
         } catch (SQLException e) {
             LOG.error(e.getMessage());
+        }
+        if(client == null)
+        {
+            LOG.info("throw UserIsNotExist exception");
             throw new UserIsNotExist();
         }
+
         return client;
     }
 
@@ -61,8 +66,8 @@ public class ClientService {
             return client;
         } catch (SQLException e) {
             LOG.error(e.getMessage());
-            throw new UserIsNotExist("Can't find user");
         }
+        return null;
     }
 
     public int addClient(ClientDTO client) {
@@ -100,13 +105,8 @@ public class ClientService {
         args[6] = client.getId();
 
 
-        try {
-            int rows = clientRepository.update(args);
-            LOG.info("Client #" + client.getId() + " updated successfully");
-        } catch (SQLException e) {
-            LOG.error("Failed to update client #" + client.getId() + "\n" + e);
-            e.printStackTrace();
-        }
+        int rows = clientRepository.update(args);
+        LOG.info("Client #" + client.getId() + " updated successfully");
 
         return 0;
     }

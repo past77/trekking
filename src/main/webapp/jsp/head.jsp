@@ -4,5 +4,5 @@ pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="la"/>
 
-<link rel="stylesheet" type="text/css" href="/resources/css/style9.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/style2.css">
 <title><fmt:message key="trekking"/></title>

@@ -44,9 +44,10 @@ public class ClientRepository implements IRepository, IQuery {
     @Override
     public ResultSet read(int id) {
         connectionManager = new ConnectorManager();
-        try (PreparedStatement readStatement = connectionManager.getConnection()
+        try {
+            PreparedStatement readStatement = connectionManager.getConnection()
                     .prepareStatement("SELECT img, name, date_of_birth, gender, height, " +
-                            "weight, lifestyle FROM clients WHERE id=?")){
+                            "weight, lifestyle FROM clients WHERE id=?");
             readStatement.setInt(1, id);
 
             return readStatement.executeQuery();
@@ -75,9 +76,10 @@ public class ClientRepository implements IRepository, IQuery {
     @Override
     public int update(Object... args){
         connectionManager = new ConnectorManager();
-        try( PreparedStatement updateStatement = connectionManager.getConnection()
-                .prepareStatement("UPDATE clients SET name=?, gender=?, " +
-                        "height=?, weight=?, lifestyle=?, img=? WHERE id=?")) {
+        try {
+            PreparedStatement updateStatement = connectionManager.getConnection()
+                    .prepareStatement("UPDATE clients SET name=?, gender=?, " +
+                            "height=?, weight=?, lifestyle=?, img=? WHERE id=?");
 
             updateStatement.setString(1, (String) args[0]);
             updateStatement.setString(2, (String) args[1]);

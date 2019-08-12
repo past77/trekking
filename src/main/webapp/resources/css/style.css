@@ -1,12 +1,371 @@
 
 body {
     padding: 0px;
-     margin: 0px;
-     background-color: url(/resources/img/backg.jpg);
-     background-size: cover;
-     background-attachment: fixed;
+     font-family: Monospace, serif;
+        margin: 0px;
+        background: url(/resources/img/fit.jpg);
+        background-size: cover;
+        background-attachment: fixed;
 }
-.menu {
-    margin-top: 20px;
+
+.circular--square {
+padding: 10px;
+  border-radius: 50%;
+   width: 200px;
+    height: 200px;
+}
+
+.suc{
+text-align: center;
+color: blue !important;
+font-family: Monospace, serif;
+font-size: 38px !important;
+}
+
+
+
+li{
+    margin: 0 20 0 20;
+    display: inline-block;
+}
+
+a, a:visited, a:active, .language-btn {
+    margin-top: 18px;
+    color: white !important;
+    font-family: Monospace, serif;
+    font-size: 18px !important;
+    text-shadow: 1px 1px 2px black;
+    text-decoration: none !important;
+
+}
+
+
+
+.welcome-title {
+    margin-top: 100px;
     text-align: center;
+    text-transform: uppercase;
+    font-family: Monospace, serif;
+    color: #1793a6;
+    font-size: 72px;
+    text-shadow: 1px 1px 15px #dbd872;
+
 }
+
+.my-title {
+    margin-top: 100px;
+    text-align: center;
+    font-family: Monospace, serif;
+    color: color:#0a52ab;
+    font-size: 16px;
+    text-shadow: 1px 1px 15px #020a47;
+
+}
+.personal_data{
+display: block;
+ background-color: blue;
+ width: 300px;
+     height: 300px;
+
+}
+.row{
+display: inline-block;
+}
+
+.pr_data{
+padding : 10px;
+color:red;
+}
+.ule {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0aa3ab;
+
+
+  width : 100%;
+}
+
+.ule2 {
+position: relative;
+left:570px;
+top:-67px;
+  margin: 0;
+  padding: 0;
+ background: #0aa3ab;
+}
+li {
+  float: left;
+}
+.container{
+height: 300px;
+float:right;
+padding:20px;
+padding-right:50px;
+}
+.container2{
+height: 150px;
+float:left;
+margin-right:30px;
+margin-left:30px;
+padding:20px;
+}
+
+.plate_table{
+  margin-left:50px;
+}
+.btn-def{
+padding: 5px;
+margin-left:406px;
+}
+
+
+.logged{
+width:100px;
+ font-family: Monospace, serif;
+    font-size: 10pt;
+padding : 25px;
+color : rgba(100, 28, 52);
+}
+.addPlate{
+ color: #DAA520;
+ background-color: brown;
+ }
+li a {
+  display: block;
+  color: #DAA520;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+color:#0a52ab;
+}
+
+ul {
+    width: 300px; /* Ширина меню */
+    list-style: none; /* Для списка убираем маркеры */
+    margin: 0; /* Нет отступов вокруг */
+    padding: 0px; /* Убираем поля вокруг текста */
+    font-family: Arial, sans-serif; /* Рубленый шрифт для текста меню */
+    font-size: 10pt; /* Размер названий в пункте меню */
+   }
+   li ul {
+    position: absolute; /* Подменю позиционируются абсолютно */
+    display: none; /* Скрываем подменю */
+    margin-left: 50px; /* Сдвигаем подменю вправо */
+   }
+
+   li a {
+       display: block; /* Ссылка как блочный элемент */
+    text-decoration: none; /* Подчеркивание у ссылок убираем */
+
+
+
+   }
+   li a:hover {
+   text-shadow: -1px -1px 1px silver,
+                    1px -1px 1px silver;
+       color: black;
+    background-color: 	#0a52ab; /* Цвет фона активного пункта */
+   }
+   li:hover ul {
+    display: block; /* При выделении пункта курсором мыши отображается подменю */
+   }
+
+
+.lang{
+margin-left : 10px;
+margin-right : 0px;
+padding 0px;
+}
+.dropdown-menu{
+display: inline-block;
+padding 0px;
+margin-left: 312px;
+}
+
+.text-primary {
+padding : 20px;
+    color:black;
+}
+
+
+.forminput{
+padding : 20px;
+}
+.register {
+    background: rgba(255, 255, 255, 0.9); <!-- register fon -->
+    border-radius: 10px;
+    margin-top: 120px;
+    padding: 10px 10px 20px 10px;
+    width: 40%;
+margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.next{
+
+
+    margin-left: auto;
+    margin-right: auto;}
+.mytable table {
+
+    width: 1000px;
+}
+
+.prof  {
+display:block;
+background-color :#B18904;
+width : 20%;
+background: rgba(255, 255, 255, 0.4);
+border-radius: 8px;
+padding: 10px 10px 20px 10px;
+}
+
+.mycont {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    margin-top: 80px;
+    padding: 10px 10px 20px 10px;
+    width: 80%;
+    background:black;
+
+}
+
+#text-primary {
+    color: #795548;
+}
+
+#text {
+    margin: 20px 0 40px 0;
+    font-size: 18px;
+    font-family: Monospace, serif;
+    color: #424242;
+    text-shadow: 1px 1px 10px #757575;
+}
+
+i {
+    float: center;
+    display: block;
+    width: 525px;
+}
+
+input br, br {
+    margin-bottom: 30px;
+}
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #424242;
+    width: 200px;
+    font-family: Monospace, serif;
+}
+
+
+
+::placeholder{
+color: rgba(0, 0, 0, 0.4);
+ }
+.submit-button {
+    padding: 10px 20px 10px 20px;
+    margin: 10px 0px 0px 0px;
+    background: #49c2d1;
+    border-radius: 5px;
+
+    border: 2px;
+    border-color:#1793a6;
+    border-style: solid;
+    color: white;
+    text-shadow: 1px 1px 10px #757575;
+
+    font-family: Monospace, serif;
+}
+.sub-btn{
+color:green;
+align:center;
+ background: rgba(78, 52, 46, 0.7);
+}
+
+.custom_food{
+width: 300px;
+margin-left:500px;
+margin-top:100px;
+align:center;
+background-color: white}
+
+.text-danger{
+font-size: 30px;
+text-align: center;
+color:red;
+}
+
+h3{
+color:blue;}
+.my-pagination {
+    padding: 10px 20px 10px 20px;
+    margin: 10px 0px 0px 0px;
+    background: transparent;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    color:  rgba(255, 255, 255, 0.4);
+    text-shadow: 1px 1px 10px #757575;
+
+    font-family: Monospace, serif;
+}
+.submit-button {
+margin-left :280px;
+
+}
+
+.footer {
+  position: absolute;
+   background-color: #0aa3ab;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+.foot{
+position: relative;
+width: 250px;
+left:1100px;
+color : white;}
+
+table {
+border-collapse: collapse; /*убираем пустые промежутки между ячейками*/
+border: 2px solid grey; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+}
+th {border: 3px solid grey;}
+td {border: 1px solid grey;}
+
+table {border: 3px solid grey;}
+
+th {width: 10%;}
+
+th {
+  font-weight: normal;
+  color: #039;
+  padding: 5px 10px;
+}
+td {
+  color: blue;
+  border-top: 1px solid #e8edff;
+  padding: 5px 10px;
+}
+tr:nth-child(2n) {background: #e8edff;}
+
+caption{
+font-size: 30px;
+color: blue;}
+
+.pagin{
+color: white;
+padding: 1px;
+background-color: #039}

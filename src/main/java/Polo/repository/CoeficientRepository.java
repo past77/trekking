@@ -38,8 +38,10 @@ public class CoeficientRepository implements IRepository, IQuery {
     public ResultSet read(int id) {
         connectionManager = new ConnectorManager();
 
-        try(PreparedStatement readStatement = connectionManager.getConnection()
-                .prepareStatement("SELECT * FROM coeficient WHERE id = ?")) {
+        try {
+            PreparedStatement readStatement = connectionManager.getConnection()
+                    .prepareStatement("SELECT * FROM coeficient WHERE id = ?");
+
             readStatement.setInt(1, id);
             return readStatement.executeQuery();
         } catch (SQLException e) {

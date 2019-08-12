@@ -22,12 +22,8 @@ public class DailyService {
             args[2] = foodHistory.getFoodIds().get(foodId);
             args[3] = Date.valueOf(foodHistory.getDate());
 
-            try {
-                repo.create(args);
-                LOG.info("Write plate to database successfully");
-            } catch (SQLException e) {
-                LOG.error("Failed to write plate to database");
-            }
+            repo.create(args);
+            LOG.info("Write plate to database successfully");
         }
     }
 

@@ -21,8 +21,10 @@ public class ClientName implements SQLSpecification {
     public PreparedStatement toSqlQuery() {
         connectionManager = new ConnectorManager();
 
-        try (PreparedStatement readNameStatement = connectionManager.getConnection()
-                    .prepareStatement("SELECT name FROM clients WHERE id=?")) {
+        try {
+
+            PreparedStatement readNameStatement = connectionManager.getConnection()
+                    .prepareStatement("SELECT name FROM clients WHERE id=?");
 
             readNameStatement.setInt(1, id);
             return readNameStatement;

@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<%@include file="main.jsp" %>
 <div class="custom_food">
 <h3>
     <fmt:message key="menu.custom_food"/>
@@ -39,11 +40,8 @@
           <input name="food_carbohydrates" type="text">
             <label for="food_carbohydrates"></label></div>
   </table>
-    <input type="submit" class="sub-btn" value='<fmt:message key="food.add" />'/>
+    <input type="submit" class="sub-btn2" value='<fmt:message key="food.add" />'/>
 </form>
-       <a href="/">
-                    <fmt:message key="end.work"/>
-        </a>
 </div>
 
 <%@include file="footer.jsp" %>

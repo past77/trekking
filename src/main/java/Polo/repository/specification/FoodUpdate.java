@@ -23,10 +23,12 @@ public class FoodUpdate implements  SQLSpecification{
     public PreparedStatement toSqlQuery() {
         connectionManager = new ConnectorManager();
 
-        try (PreparedStatement updateStatement = connectionManager.getConnection()
-                .prepareStatement("UPDATE food SET name='?', number=?, " +
-                        "calories=?, proteins=?, fats=?, carbohydrates=?" +
-                        "WHERE id=?")) {
+        try {
+            PreparedStatement updateStatement = connectionManager.getConnection()
+                    .prepareStatement("UPDATE food SET name='?', number=?, " +
+                            "calories=?, proteins=?, fats=?, carbohydrates=?" +
+                            "WHERE id=?");
+
             updateStatement.setString(1, food.getName());
             updateStatement.setInt(2, food.getNumber());
             updateStatement.setDouble(3, food.getCalories());

@@ -21,8 +21,9 @@ public class FoodId implements  SQLSpecification{
     public PreparedStatement toSqlQuery() {
         connectionManager = new ConnectorManager();
 
-        try(PreparedStatement readAllStatement = connectionManager.getConnection()
-                    .prepareStatement("SELECT * FROM food WHERE id=?")) {
+        try {
+            PreparedStatement readAllStatement = connectionManager.getConnection()
+                    .prepareStatement("SELECT * FROM food WHERE id=?");
             readAllStatement.setInt(1, id);
 
             return readAllStatement;

@@ -21,11 +21,7 @@ public class DeflectionService {
         args[4] = history.getValue().getFat();
         args[5] = history.getValue().getCarbohydrates();
 
-        try {
-            repo.create(args);
-            LOG.info("Write deflection to database successfully");
-        } catch (SQLException e) {
-            LOG.error("Fail to write deflection to database");
-        }
+        repo.create(args);
+        LOG.info("Write deflection to database successfully");
     }
 }

@@ -39,7 +39,9 @@ public class FoodRepository implements IRepository, IQuery {
     @Override
     public ResultSet read(int id){
         connectionManager = new ConnectorManager();
-        try(Statement readStatement = connectionManager.getConnection().createStatement()) {
+        try {
+            Statement readStatement = connectionManager.getConnection().createStatement();
+
             return readStatement.executeQuery("SELECT * FROM food");
         } catch (SQLException e) {
             LOG.error(e.getMessage());
@@ -63,9 +65,10 @@ public class FoodRepository implements IRepository, IQuery {
     @Override
     public int update(Object... args) {
         connectionManager = new ConnectorManager();
-        try (PreparedStatement updateStatement = connectionManager.getConnection()
-                .prepareStatement("UPDATE food SET name=?, number=?, " +
-                        "calories=?, proteins=?, fats=?, carbohydrates=? WHERE id=?")) {
+        try {
+            PreparedStatement updateStatement = connectionManager.getConnection()
+                    .prepareStatement("UPDATE food SET name=?, number=?, " +
+                            "calories=?, proteins=?, fats=?, carbohydrates=? WHERE id=?");
             updateStatement.setString(1, (String) args[0]);
             updateStatement.setString(2, (String) args[1]);
             updateStatement.setString(3, (String) args[2]);

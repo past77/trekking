@@ -13,17 +13,16 @@ import static java.lang.System.getProperty;
 
 public class ConnectorManager implements ConnectionManager {
     private static final Logger LOGGER = Logger.getLogger(ConnectorManager.class);
-    private static final String PROP_FILE_NAME = "options";
     private static BasicDataSource dbcp = new BasicDataSource();
     private static Connection conn = null;
 
     static {
-        try {
+        try (FileInputStream in = new FileInputStream("target/classes/o.properties")){
             Properties jdbcProps = new Properties();
-        FileInputStream in = new FileInputStream("target/classes/o.properties");
-        jdbcProps.load(in);
-        in.close();
+            jdbcProps.load(in);
+
             LOGGER.info("Read JDBC properties successfully");
+
             dbcp.setDriverClassName("com.mysql.cj.jdbc.Driver");
             dbcp.setUrl(jdbcProps.getProperty("url"));
             dbcp.setUsername(jdbcProps.getProperty("username"));
@@ -46,11 +45,9 @@ public class ConnectorManager implements ConnectionManager {
                 conn = dbcp.getConnection();
                 LOGGER.info("Connected to database successfully " + conn);
             } catch (SQLException e) {
-                LOGGER.fatal("Could not connect to database server", e);
-                e.printStackTrace();
-                System.exit(1);
+                LOGGER.fatal("Could't connect to database server", e);
+                throw new InitializationException("Could not connect to database server", e);
             }
-
         }
         return conn;
     }

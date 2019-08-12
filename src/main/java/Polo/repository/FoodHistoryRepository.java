@@ -38,7 +38,9 @@ public class FoodHistoryRepository extends AbstaractFuncForRepo implements IRepo
     public ResultSet read(int historyId){
         connectionManager = new ConnectorManager();
 
-        try (Statement readStatement = connectionManager.getConnection().createStatement()) {
+        try {
+            Statement readStatement = connectionManager.getConnection().createStatement();
+
             return readStatement.executeQuery(String.format("SELECT * FROM food_history WHERE history_id=%d", historyId));
         } catch (SQLException e) {
             LOG.error(e.getMessage());

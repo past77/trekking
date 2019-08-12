@@ -31,7 +31,7 @@ li{
 
 a, a:visited, a:active, .language-btn {
     margin-top: 18px;
-    color: white !important;
+    color: #DAA520 !important;
     font-family: Monospace, serif;
     font-size: 18px !important;
     text-shadow: 1px 1px 2px black;
@@ -42,13 +42,13 @@ a, a:visited, a:active, .language-btn {
 
 
 .welcome-title {
-    margin-top: 100px;
+    margin-top: 200px;
     text-align: center;
     text-transform: uppercase;
     font-family: Monospace, serif;
-    color: #1793a6;
+    color: blue;
     font-size: 72px;
-    text-shadow: 1px 1px 15px #dbd872;
+    text-shadow: 1px 1px 15px #020a47;
 
 }
 
@@ -56,15 +56,14 @@ a, a:visited, a:active, .language-btn {
     margin-top: 100px;
     text-align: center;
     font-family: Monospace, serif;
-    color: color:#0a52ab;
+    color: #DAA520;
     font-size: 16px;
     text-shadow: 1px 1px 15px #020a47;
 
 }
 .personal_data{
 display: block;
-border-radius : 10px;
- background-color: #1793a6;
+ background-color: blue;
  width: 300px;
      height: 300px;
 
@@ -75,7 +74,7 @@ display: inline-block;
 
 .pr_data{
 padding : 10px;
-color: white;
+color:red;
 }
 .ule {
   list-style-type: none;
@@ -143,7 +142,7 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-color:#0a52ab;
+color:yellow;
 }
 
 ul {
@@ -171,7 +170,7 @@ ul {
    text-shadow: -1px -1px 1px silver,
                     1px -1px 1px silver;
        color: black;
-    background-color: 	#0a52ab; /* Цвет фона активного пункта */
+    background-color: 	F0E68C; /* Цвет фона активного пункта */
    }
    li:hover ul {
     display: block; /* При выделении пункта курсором мыши отображается подменю */
@@ -276,40 +275,25 @@ color: rgba(0, 0, 0, 0.4);
 .submit-button {
     padding: 10px 20px 10px 20px;
     margin: 10px 0px 0px 0px;
-    background: #49c2d1;
+    background: rgba(78, 52, 46, 0.7);
     border-radius: 5px;
-    margin-left :280px;
-    border: 2px;
-    border-color:#1793a6;
-    border-style: solid;
-    color: white;
+
+    border: none;
+    color: yellow;
     text-shadow: 1px 1px 10px #757575;
 
     font-family: Monospace, serif;
 }
-.sub-btn2{
- padding: 10px 20px 10px 20px;
-    margin: 10px 0px 0px 0px;
-    background: #49c2d1;
-    border-radius: 5px;
-    margin-left :100px;
-    border: 2px;
-    border-color:#1793a6;
-    border-style: solid;
-    color: white;
-    text-shadow: 1px 1px 10px #757575;
-
-    font-family: Monospace, serif;
+.sub-btn{
+color:green;
+align:center;
+ background: rgba(78, 52, 46, 0.7);
 }
 
 .custom_food{
-width: 300px;
-height: 340px;
-border-radius: 10px;
 margin-left:500px;
 margin-top:100px;
-align:center;
-background-color: #99d8e0}
+align:center;}
 
 .text-danger{
 font-size: 30px;
@@ -331,10 +315,14 @@ color:blue;}
 
     font-family: Monospace, serif;
 }
+.submit-button {
+margin-left :280px;
+
+}
 
 .footer {
   position: absolute;
-   background-color: #0aa3ab;
+   background-color: blue;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -344,7 +332,7 @@ color:blue;}
 position: relative;
 width: 250px;
 left:1100px;
-color : white;}
+color : red;}
 
 table {
 border-collapse: collapse; /*убираем пустые промежутки между ячейками*/

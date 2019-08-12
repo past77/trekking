@@ -37,7 +37,9 @@ public class DeflectionHistoryRepository implements IRepository {
     public ResultSet read(int id) {
         connectionManager = new ConnectorManager();
 
-        try (Statement readStatement = connectionManager.getConnection().createStatement()){
+        try {
+            Statement readStatement = connectionManager.getConnection().createStatement();
+
             return readStatement.executeQuery(String.format("SELECT * FROM food_history WHERE id=%d", id));
         } catch (SQLException e) {
             LOG.error(e.getMessage());
